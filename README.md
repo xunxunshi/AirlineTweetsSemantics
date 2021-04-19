@@ -43,7 +43,7 @@ This is the summary of the accuracies for each tuned model on the test data set.
 ### Bench Marking Results 
 In 2019, Monika et al.  performed sentiment analysis of US Airline Tweets using LSTM/RNN and reported accuracy of approximately 75% on test data and 85% on training data  [https://ieeexplore.ieee.org/abstract/document/8971592/], which is of lower performance than this model. It’s possible that they did not fully tune the network well, but this also goes to show that using a more complex and most popular model will not always increase the performance. 
 
-### Error Analysis 
+# Error Analysis 
 The optimal algorithm chosen was SVC (C=1, hinge loss) with TF-IDF. 
 
 The most common error for SVC with TF-IDF is with neutral sentiments that are misidentified as negative sentiments, as shown by the confusion matrix below. 
