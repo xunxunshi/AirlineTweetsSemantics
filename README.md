@@ -22,10 +22,9 @@ Like all other businesses,the airline business can have incidences of poor servi
 *   Ensemble Methods with the three classifiers  (with and without SMOTE) 
 ### Model Building Process:
 *  Training dataset (70%): used for 10 fold cross-validation (train on 90% instances test on 10% , repeated 10 times) for hyper parameter tuning 
-*   - The aggregated training dataset results was used for hyper parameter selection of each model 
+*  The aggregated training dataset results was used for hyper parameter selection of each model 
 *  Validation Data (30%) for testing 
-*   - The tuned model was tested on the validation data
-*   - The final accuracy performance is 
+*  The tuned model was tested on the validation data and the accruacy was reported 
 ###  Application : 
 *  When airlines that recieve the tweets @ them from client, the classifier is used to determine the semantics of the tweets. All tweets identifid as negative are sent to the complaint-handling chatbot. 
 * Experience our chatbot here:  https://bot.dialogflow.com/airline-problem-handling-chatbot.
@@ -40,11 +39,17 @@ This is the summary of the accuracies for each tuned model on the test data set.
 
 ![image](https://user-images.githubusercontent.com/29676594/115296341-d76de780-a128-11eb-943e-0d00e6a2cc41.png)
 
-### Bench Marking Results 
+ ###  Final Predictor Testset Result
+The optimal algorithm chosen was SVC (C=1, hinge loss) with TF-IDF which achieved an accuracy of 0.82.
+This is the ROC curve of the performance. The ROC curves shows that the predictor excels at predicting for the positive and negative sentiments (AUC area of 0.81 to 0.83), and slightly lacking in predicting for neutral sentiments (AUC area of 0.76). This could be due to the lack of sentimental words associated with neutral texts. 
+
+![image](https://user-images.githubusercontent.com/29676594/115300104-93311600-a12d-11eb-9730-3e94e0fae32f.png)
+
+
+ ### Bench Marking Results 
 In 2019, Monika et al.  performed sentiment analysis of US Airline Tweets using LSTM/RNN and reported accuracy of approximately 75% on test data and 85% on training data  [https://ieeexplore.ieee.org/abstract/document/8971592/], which is of lower performance than this model. It’s possible that they did not fully tune the network well, but this also goes to show that using a more complex and most popular model will not always increase the performance. 
 
 # Error Analysis 
-The optimal algorithm chosen was SVC (C=1, hinge loss) with TF-IDF. 
 
 The most common error for SVC with TF-IDF is with neutral sentiments that are misidentified as negative sentiments, as shown by the confusion matrix below. 
 
